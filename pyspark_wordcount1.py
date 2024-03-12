@@ -15,16 +15,14 @@ if __name__ == "__main__":
     #    print('Usage: pyspark_wordcount.py <"data_file_path"> <"template_file_path">', file=sys.stderr)
     #    sys.exit(-1)
 
-    #input_path1 ='hdfs:///tmp/wordcount_input_1.txt'
-    #input_path2 ='hdfs:///tmp/word_count_templates.txt'
-    #input_path1 ='hdfs://ecs-es-01.demo1.athens.cloudera.com:8020/tmp/wordcount_input_1.txt'
-    #input_path2 ='hdfs://ecs-es-01.demo1.athens.cloudera.com:8020/tmp/word_count_templates.txt'
-    input_path1 ='hdfs://base-ms3-01.demo1.athens.cloudera.com:8020/tmp/wordcount_input_1.txt'
-    input_path2 ='hdfs://base-ms3-01.demo1.athens.cloudera.com:8020/tmp/word_count_templates.txt'
-    #input_path1 ='wordcount_input_1.txt'
-    #input_path2 ='word_count_templates.txt'
-    #input_path1 ='file:///app/mount/wordcount_input_1.txt'
-    #input_path2 ='file:///app/mount/word_count_templates.txt'
+    #input_path1 ='hdfs:///tmp/wordcount_input_1.txt'                   ## this will look for file on name node
+    #input_path2 ='hdfs:///tmp/word_count_templates.txt'                ## this will look for file on name node
+    #input_path1 ='hdfs://<hostname>:8020/tmp/wordcount_input_1.txt'    ## this will look for file on specified node
+    #input_path2 ='hdfs://<hostname>:8020/tmp/word_count_templates.txt' ## this will look for file on specified node
+    #input_path1 ='wordcount_input_1.txt'                               ## this will look for file on local path
+    #input_path2 ='word_count_templates.txt'                            ## this will look for file on local path
+    #input_path1 ='file:///app/mount/wordcount_input_1.txt'             ## this will look for file in CDE resource
+    #input_path2 ='file:///app/mount/word_count_templates.txt'          ## this will look for file in CDE resource
 
 
     spark = SparkSession.builder.appName("PythonWordCount").getOrCreate()
